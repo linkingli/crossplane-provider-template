@@ -15,11 +15,11 @@ with the following features that are meant to be refactored:
 1. Run `make submodules` to initialize the "build" Make submodule we use for CI/CD.
 1. Rename the provider by running the follwing command:
 ```
-  make provider.prepare provider={PascalProviderName}
+  make provider.prepare provider=jelly
 ```
 4. Add your new type by running the following command:
 ```
-make provider.addtype provider={PascalProviderName} group={group} kind={type}
+make provider.addtype provider=jelly group=v1 kind=red
 ```
 5. Replace the *sample* group with your new group in apis/{provider}.go
 5. Replace the *mytype* type with your new type in internal/controller/{provider}.go
