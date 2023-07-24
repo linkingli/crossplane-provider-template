@@ -14,20 +14,21 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// Package apis contains Kubernetes API for the Template provider.
+// Package apis contains Kubernetes API for the jelly provider.
 package apis
 
 import (
 	"k8s.io/apimachinery/pkg/runtime"
-
-	samplev1alpha1 "github.com/crossplane/provider-template/apis/sample/v1alpha1"
-	templatev1alpha1 "github.com/crossplane/provider-template/apis/v1alpha1"
+	//todo 替换sample为自己定义make provider.addtype provider=jelly group=v1 kind=red中的
+	// group的值也是说v1
+	samplev1alpha1 "github.com/crossplane/provider-jelly/apis/v1/v1alpha1"
+	jellyv1alpha1 "github.com/crossplane/provider-jelly/apis/v1alpha1"
 )
 
 func init() {
 	// Register the types with the Scheme so the components can map objects to GroupVersionKinds and back
 	AddToSchemes = append(AddToSchemes,
-		templatev1alpha1.SchemeBuilder.AddToScheme,
+		jellyv1alpha1.SchemeBuilder.AddToScheme,
 		samplev1alpha1.SchemeBuilder.AddToScheme,
 	)
 }

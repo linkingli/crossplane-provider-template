@@ -19,17 +19,17 @@ package controller
 import (
 	"github.com/crossplane/crossplane-runtime/pkg/controller"
 	ctrl "sigs.k8s.io/controller-runtime"
-
-	"github.com/crossplane/provider-template/internal/controller/config"
-	"github.com/crossplane/provider-template/internal/controller/mytype"
+	// todo 替换这个文件中mytype为我们定义的kind.kind=red
+	"github.com/crossplane/provider-jelly/internal/controller/config"
+	"github.com/crossplane/provider-jelly/internal/controller/red"
 )
 
-// Setup creates all Template controllers with the supplied logger and adds them to
+// Setup creates all jelly controllers with the supplied logger and adds them to
 // the supplied manager.
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
 		config.Setup,
-		mytype.Setup,
+		red.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err
